@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day Planner</title>
+
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data-2012-2022.min.js"></script>
+
+    <script src="assets/scripts/script.js" defer></script>
+
+    <link rel="stylesheet" href="assets/styles/style.css">
+
+    <script>moment().format();</script>
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class='container'>
+
+        <div class="row justify-content-center">
+
+            <div id='Title Content'>
+
+                <h1 class='text-center'>Work Day Scheduler</h1>
+                <h4 class='text-center'>A Simple Daily Planner</h4>
+
+                <span class='text-center' id='headerDate'></span>
+
+            </div>
+
+
+        </div>
+
+        <div class="row bg-dark" id='iRule'>
+
+        </div>
+
+
+
+
+        <form>
+            <div class="form-group row">
+                <label for="9data" class="col-sm-2 col-form-label">9:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="9data"></div>
+                <div class="col-sm-2"><input type='button' id='9button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="10data" class="col-sm-2 col-form-label">10:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="9data"></div>
+                <div class="col-sm-2"><input type='button' id='10button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="11data" class="col-sm-2 col-form-label">11:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="11data"></div>
+                <div class="col-sm-2"><input type='button' id='11button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="12data" class="col-sm-2 col-form-label">12:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="12data"></div>
+                <div class="col-sm-2"><input type='button' id='12button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="1data" class="col-sm-2 col-form-label">1:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="1data"></div>
+                <div class="col-sm-2"><input type='button' id='1button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="2data" class="col-sm-2 col-form-label">2:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="2data"></div>
+                <div class="col-sm-2"><input type='button' id='2button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="3data" class="col-sm-2 col-form-label">3:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="3data"></div>
+                <div class="col-sm-2"><input type='button' id='3button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="4data" class="col-sm-2 col-form-label">4:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="4data"></div>
+                <div class="col-sm-2"><input type='button' id='4button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="5data" class="col-sm-2 col-form-label">5:00</label>
+                <div class="col-sm-8"><input type="text" class="form-control" id="5data"></div>
+                <div class="col-sm-2"><input type='button' id='5button' class="btn btn-outline-success" value='save'>
+                </div>
+            </div>
+
+
+
+        </form>
+
+
+
+
+
+
+
+    </div>
+
+    </div>
+    <div id="right-now"></div>
+
+    <script>
+            var span = $("<span>");
+            var now = moment();
+            // var when = moment().add(7, 'days').subtract(1, 'months').year(2009).hours(0).minutes(0).seconds(0);
+            // var now = moment("12-25-1995", "MM-DD-YYYY");
+            console.log(now);
+            // console.log(now._d);
+            // span.text(now._d);
+            span.text(now);
+            // span.text(when);
+            $("#right-now").append(span);
+            // $("body").append(span);
+            console.log('date number ' + moment().date(Number));
+            console.log(moment().date()); // Number
+            console.log('hour number ' + moment().hour(Number));
+            console.log('minute number ' + moment().minute(Number));
+            console.log(moment().hour()); // Number
+        </script>
+
+</body>
+
+</html>
