@@ -1,84 +1,51 @@
-// Set all variables
-
-var slotArray = [
-    {
-        timeLabel : '9:00am',
-        data : '',
-        saveBox : saveBtn
-    },
-    {
-        timeLabel : '10:00am',
-        data : '',
-        saveBox : saveBtn
-    },
-    {
-        timeLabel : '11:00am',
-        data : '',
-        saveBox : saveBtn
-    },
-    {
-        timeLabel : '12:00',
-        data : '',
-        saveBox : saveBtn
-    },
-    {
-        timeLabel : '1:00pm',
-        data : '',
-        saveBox : saveBtn
-    },
-    {
-        timeLabel : '2:00pm',
-        data : '',
-        saveBox : saveBtn
-    },
-    {
-        timeLabel : '3:00pm',
-        data : '',
-        saveBox : saveBtn
-    },
-    {
-        timeLabel : '4:00pm',
-        data : '',
-        saveBox : saveBtn
-    },
-    {
-        timeLabel : '5:00pm',
-        data : '',
-        saveBox : saveBtn
-    }
-]
 
 
+// Listen for a click:
 
-var saveBtn = $('<input class="btn btn-primary">').on('click', saveFunc());
-
-
-
-// Make individual slots with individual buttons. Button click will stringify 'slot9 data' eg
+$(document).on("click", ".btn", saveToLocal);
 
 
 
 
-// Make a For Loop that appends Hour rows to the timeSlotBox id; each row is one index in an array - id based on that
 
-for (i = 0; i < SlotArray.length; i++) {
+// On any click, set data of that slot to Local Storage
 
-    slotArray.push(timeLabel, data, saveBtn)
+function saveToLocal() {
+    var btnNum = $(this).attr("data-num");              //  Gets the "number" of the clicked button
+    var wire = ('#' + btnNum);                          //  Creates the element id for the text input from the button number
+    txtData = $(wire).val();                            //  Fetches the text/data from the text input
 
-    $('#timeSlotBox').append(slotArray[i]);
-}
-
-
-// Tie array index to name and time (moment?)
-
-
-
-
-// Make a function that sends all data to Local Storage; each time slot is identified by array index/name; function called by saveBtn
-
-function saveFunc() {
-    
-localStorage.setItem('timeLabel', timeLabel);
-localStorage.setItem('data', data)
+    localStorage.setItem('TimeSlot' + btnNum, txtData); //  Sets the time slot and data in Local Storage
 
 }
+
+
+
+
+
+// This function renders data on the page at page load
+
+function renderData() {
+    var slot9 = localStorage.getItem("TimeSlot9");
+    var slot10 = localStorage.getItem("TimeSlot10");
+    var slot11 = localStorage.getItem("TimeSlot11");
+    var slot12 = localStorage.getItem("TimeSlot12");
+    var slot1 = localStorage.getItem("TimeSlot1");
+    var slot2 = localStorage.getItem("TimeSlot2");
+    var slot3 = localStorage.getItem("TimeSlot3");
+    var slot4 = localStorage.getItem("TimeSlot4");
+    var slot5 = localStorage.getItem("TimeSlot5");
+   
+    $('#9').val(slot9);
+    $('#10').val(slot10);
+    $('#11').val(slot11);
+    $('#12').val(slot12);
+    $('#1').val(slot1);
+    $('#2').val(slot2);
+    $('#3').val(slot3);
+    $('#4').val(slot4);
+    $('#5').val(slot5);
+
+  }
+  
+
