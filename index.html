@@ -23,7 +23,7 @@
 
     <script>moment().format();</script>
 
-    
+
 
 
 
@@ -31,9 +31,10 @@
 
 </head>
 
-<body onload='renderData();'>
+<body onload='renderData(); colorPage()'>
 
-    <div class='container'>
+
+    <div class='container' id="container">
 
         <div class="row justify-content-center">
 
@@ -41,6 +42,9 @@
 
                 <h1 class='text-center'>Work Day Scheduler</h1>
                 <h4 class='text-center'>A Simple Daily Planner</h4>
+
+                <h6 id="right-now" class='text-center'></h6>
+
 
                 <span class='text-center' id='headerDate'></span>
 
@@ -59,65 +63,77 @@
         <form>
             <div class="form-group row">
                 <label for="9data" class="col-sm-2 col-form-label" value=9>9:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="9" data-num='9' value=''></div>
-                <div class="col-sm-2"><input type='button' id='9button' data-num='9' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" id="9" data-num='9' value=''></div>
+                <div class="col-sm-2"><input type='button' id='9button' data-num='9' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
 
             <div class="form-group row">
                 <label for="10data" class="col-sm-2 col-form-label">10:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="10" value=''></div>
-                <div class="col-sm-2"><input type='button' id='10button' data-num='10' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" id="10" data-num='10' value=''>
+                </div>
+                <div class="col-sm-2"><input type='button' id='10button' data-num='10' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="11data" class="col-sm-2 col-form-label">11:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="11" value=''></div>
-                <div class="col-sm-2"><input type='button' id='11button' data-num='11' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" id="11" data-num='11' value=''>
+                </div>
+                <div class="col-sm-2"><input type='button' id='11button' data-num='11' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="12data" class="col-sm-2 col-form-label">12:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="12" value=''></div>
-                <div class="col-sm-2"><input type='button' id='12button' data-num='12' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" id="12" data-num='12' value=''>
+                </div>
+                <div class="col-sm-2"><input type='button' id='12button' data-num='12' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="1data" class="col-sm-2 col-form-label">1:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="1" value=''></div>
-                <div class="col-sm-2"><input type='button' id='1button' data-num='1' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" data-num='13' id="1" value=''></div>
+                <div class="col-sm-2"><input type='button' id='1button' data-num='1' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="2data" class="col-sm-2 col-form-label">2:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="2" value=''></div>
-                <div class="col-sm-2"><input type='button' id='2button' data-num='2' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" data-num='14' id="2" value=''></div>
+                <div class="col-sm-2"><input type='button' id='2button' data-num='2' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="3data" class="col-sm-2 col-form-label">3:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="3" value=''></div>
-                <div class="col-sm-2"><input type='button' id='3button' data-num='3' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" data-num='15' id="3" value=''></div>
+                <div class="col-sm-2"><input type='button' id='3button' data-num='3' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="4data" class="col-sm-2 col-form-label">4:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="4" value=''></div>
-                <div class="col-sm-2"><input type='button' id='4button' data-num='4' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" data-num='16' id="4" value=''></div>
+                <div class="col-sm-2"><input type='button' id='4button' data-num='4' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="5data" class="col-sm-2 col-form-label">5:00</label>
-                <div class="col-sm-8"><input type="text" class="form-control" id="5" value=''></div>
-                <div class="col-sm-2"><input type='button' id='5button' data-num='5' class="btn btn-outline-success" value='save'>
+                <div class="col-sm-8"><input type="text" class="form-control layer" data-num='17' id="5" value=''></div>
+                <div class="col-sm-2"><input type='button' id='5button' data-num='5' class="btn btn-outline-success"
+                        value='save'>
                 </div>
             </div>
 
@@ -133,35 +149,11 @@
 
     </div>
 
-    </div>
-    <div id="right-now"></div>
-
-    <script>
-        var span = $("<span>");
-        var now = moment();
-        var hour = moment().hour();
-        var minute = moment().minute();
-        var month = (moment().month() + 1)
-        var date = moment().date();
 
 
-        console.log('time is: ' + hour + ':' + minute);
-        console.log('date is: ' + month + '/' + date);
 
 
-        // var when = moment().add(7, 'days').subtract(1, 'months').year(2009).hours(0).minutes(0).seconds(0);
-        // var now = moment("12-25-1995", "MM-DD-YYYY");
-        console.log(now);
-        // console.log(now._d);
-        // span.text(now._d);
-        span.text(now);
-        // span.text(when);
-        $("#right-now").append(span);
-        // $("body").append(span);
-        // console.log('date number is ' + moment().date()); // Number
-        // console.log('minute number ' + moment().minute());
-        // console.log('hour number is ' + moment().hour()); // Number
-    </script>
+
 
 </body>
 

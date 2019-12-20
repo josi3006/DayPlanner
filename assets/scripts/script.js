@@ -1,8 +1,49 @@
 
+// Gets the current time and parses it into parts (hour, minute, etc.)
+
+var span = $("<span>");
+var now = moment();
+var hour = moment().hour();
+var minute = moment().minute();
+var month = (moment().month() + 1)
+var date = moment().date();
+var usrTime = (month + ' / ' + date)
+
+span.text(usrTime);
+
+$("#right-now").append(span);
+
+
+
+
+
 
 // Listen for a click:
 
 $(document).on("click", ".btn", saveToLocal);
+
+
+
+
+// This function colors the slots on the page
+
+function colorPage() {
+
+    var timeVal = $('.form-control')
+
+    timeVal.each(function () {
+
+        var slotNum = $(this).data('num')
+
+        if (hour > slotNum) { color = '#f0f0f0' }                 // light gray for past hours         
+        else if (hour === slotNum) { color = ('#18eba5') }        // mint green for current hour
+        else { color = ('#bae3ff') };                             // light blue for future hours 
+
+        $(this).css("background-color", color)
+
+    })
+
+}
 
 
 
@@ -35,7 +76,7 @@ function renderData() {
     var slot3 = localStorage.getItem("TimeSlot3");
     var slot4 = localStorage.getItem("TimeSlot4");
     var slot5 = localStorage.getItem("TimeSlot5");
-   
+
     $('#9').val(slot9);
     $('#10').val(slot10);
     $('#11').val(slot11);
@@ -46,6 +87,6 @@ function renderData() {
     $('#4').val(slot4);
     $('#5').val(slot5);
 
-  }
-  
+}
+
 
